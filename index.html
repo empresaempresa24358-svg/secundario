@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trámites y Servicios - Argentina.gob.ar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html"><img src="images/argentina.png" alt="Logo Argentina" class="logo"></a>
+            <div class="header-right">
+                <i class="fas fa-search"></i>
+                <div class="mi-argentina-btn">mi</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="blue-line"></div>
+
+    <main class="content">
+        <nav class="breadcrumb">... / Educación /</nav>
+        <h1>Trámites y servicios</h1>
+        <p class="intro-text">Encontrá aquí el listado de trámites correspondientes a nuestro ministerio.</p>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar en el sitio..." onkeyup="filterCards()">
+        </div>
+
+        <div class="grid" id="cardGrid">
+            <a href="oficios-judiciales.html" class="card">
+                <div class="card-header"><i class="fas fa-gavel"></i></div>
+                <div class="card-body"><h3>Oficios Judiciales Digitales</h3></div>
+            </a>
+
+            <a href="tramitar-reconocimiento.html" class="card">
+                <div class="card-header"><i class="fas fa-file-alt"></i></div>
+                <div class="card-body"><h3>Tramitar reconocimiento de certificados, títulos y estudios primarios y secundarios</h3></div>
+            </a>
+
+            <a href="legalizar-certificado.html" class="card">
+                <div class="card-header"><i class="fas fa-mobile-alt"></i></div>
+                <div class="card-body"><h3>Legalizar el Certificado de Estudio Secundario y/o Terciario</h3></div>
+            </a>
+
+            <a href="solicitar-validez.html" class="card">
+                <div class="card-header"><i class="fas fa-bookmark"></i></div>
+                <div class="card-body"><h3>Solicitar validez nacional de títulos y certificados de educación inicial, primaria y secundaria</h3></div>
+            </a>
+
+            <a href="reconocimiento-extranjeros.html" class="card">
+                <div class="card-header"><i class="fas fa-graduation-cap"></i></div>
+                <div class="card-body"><h3>Reconocimiento de Estudios Extranjeros</h3></div>
+            </a>
+
+            <a href="vouchers-educativos.html" class="card">
+                <div class="card-header"><i class="fas fa-file-contract"></i></div>
+                <div class="card-body"><h3>Vouchers Educativos</h3></div>
+            </a>
+
+            <a href="convalidar-titulo.html" class="card">
+                <div class="card-header"><i class="fas fa-user-graduate"></i></div>
+                <div class="card-body"><h3>Convalidá tu título universitario obtenido en el extranjero</h3></div>
+            </a>
+
+            <a href="conocer-diploma.html" class="card">
+                <div class="card-header"><i class="fas fa-certificate"></i></div>
+                <div class="card-body"><h3>Conocé el estado de tu diploma o analítico universitario</h3></div>
+            </a>
+
+            <a href="simulador-reconocimiento.html" class="card">
+                <div class="card-header"><i class="fas fa-file-pdf"></i></div>
+                <div class="card-body"><h3>Simulador de Reconocimiento Académico</h3></div>
+            </a>
+
+            <a href="guia-carreras.html" class="card">
+                <div class="card-header"><i class="fas fa-th"></i></div>
+                <div class="card-body"><h3>Guía de Carreras</h3></div>
+            </a>
+
+            <a href="convalidar-secundarios.html" class="card">
+                <div class="card-header"><i class="fas fa-edit"></i></div>
+                <div class="card-body"><h3>Convalidá títulos secundarios cursados en el extranjero</h3></div>
+            </a>
+
+            <a href="reconoce-titulo-secundario.html" class="card">
+                <div class="card-header"><i class="fas fa-award"></i></div>
+                <div class="card-body"><h3>Reconocé tu título secundario de países sin convenio</h3></div>
+            </a>
+
+            <a href="revalidacion-superior.html" class="card">
+                <div class="card-header"><i class="fas fa-file-pdf"></i></div>
+                <div class="card-body"><h3>Revalidá estudios de Educación Superior Técnica</h3></div>
+            </a>
+
+            <a href="revalidacion-docente.html" class="card">
+                <div class="card-header"><i class="fas fa-file-download"></i></div>
+                <div class="card-body"><h3>Revalidá estudios de educación en Formación docente</h3></div>
+            </a>
+
+            <a href="buscador-titulos.html" class="card">
+                <div class="card-header"><i class="fas fa-scale-balanced"></i></div>
+                <div class="card-body"><h3>Buscador de títulos oficiales</h3></div>
+            </a>
+
+            <a href="legalizacion-titulos.html" class="card">
+                <div class="card-header"><i class="fas fa-file"></i></div>
+                <div class="card-body"><h3>Legalización de títulos universitarios</h3></div>
+            </a>
+
+            <a href="registro-graduados.html" class="card">
+                <div class="card-header"><i class="fas fa-list"></i></div>
+                <div class="card-body"><h3>Registro público de graduados</h3></div>
+            </a>
+
+            <a href="programa-fines.html" class="card">
+                <div class="card-header"><i class="fas fa-hammer"></i></div>
+                <div class="card-body"><h3>Programa FiNES</h3></div>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        function filterCards() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].querySelector("h3").innerText.toLowerCase();
+                cards[i].style.display = title.includes(input) ? "flex" : "none";
+            }
+        }
+    </script>
+</body>
+</html>

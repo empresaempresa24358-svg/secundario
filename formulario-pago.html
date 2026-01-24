@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago - Argentina.gob.ar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html"><img src="images/argentina.png" alt="Logo Argentina" class="logo"></a>
+            <div class="header-right">
+                <div class="search-bar-header">
+                    <input type="text" placeholder="Buscá en el sitio">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="mi-argentina-btn">mi</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="yellow-line"></div>
+
+    <main class="content">
+        <nav class="breadcrumb">Ministerio de Capital Humano / Educación /</nav>
+        
+        <div class="page-layout">
+            <div class="main-content">
+                <h1>Formulario de Pago de Aranceles</h1>
+                <p class="lead">Completa el formulario con tus datos para procesar el pago.</p>
+
+                <hr>
+
+                <section id="formulario" class="section">
+                    <form class="payment-form">
+                        <div class="form-group">
+                            <label for="nombre">Nombre <span class="required">*</span></label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="apellido">Apellido <span class="required">*</span></label>
+                            <input type="text" id="apellido" name="apellido" placeholder="Ingresa tu apellido" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="documento">Documento (DNI) <span class="required">*</span></label>
+                            <input type="text" id="documento" name="documento" placeholder="Ej: 12345678" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Número de Teléfono <span class="required">*</span></label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 1123456789" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico (Gmail) <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="ejemplo@gmail.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="monto">Monto a Pagar <span class="required">*</span></label>
+                            <input type="text" id="monto" name="monto" value="$20.013" readonly>
+                        </div>
+
+                        <div class="form-actions">
+                            <a href="pago-cbu.html" class="btn-submit">Continuar</a>
+                            <a href="abonar.html" class="btn-cancel">Cancelar</a>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <aside class="sidebar">
+                <div class="sticky-card">
+                    <h3>Requisitos</h3>
+                    <div class="requirements-list">
+                        <p><i class="fas fa-check-circle"></i> Nombre completo</p>
+                        <p><i class="fas fa-check-circle"></i> Apellido</p>
+                        <p><i class="fas fa-check-circle"></i> Documento (DNI)</p>
+                        <p><i class="fas fa-check-circle"></i> Teléfono de contacto</p>
+                        <p><i class="fas fa-check-circle"></i> Correo electrónico válido</p>
+                        <p><i class="fas fa-check-circle"></i> Monto a pagar</p>
+                    </div>
+                    <button class="btn-green">Consultar en línea</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <section class="share-section">
+        <div class="share-container">
+            <p class="share-label">Compartir en redes sociales</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon" title="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="feedback-section">
+        <h2>¿Qué tan útil te resultó esta información?</h2>
+        <div class="feedback-options">
+            <button class="feedback-btn" title="No me sirvió">
+                <i class="fas fa-face-angry"></i>
+                <span>No me sirvió</span>
+            </button>
+            <button class="feedback-btn" title="Poco útil">
+                <i class="fas fa-face-frown"></i>
+                <span>Poco útil</span>
+            </button>
+            <button class="feedback-btn" title="Me da igual">
+                <i class="fas fa-face-meh"></i>
+                <span>Me da igual</span>
+            </button>
+            <button class="feedback-btn" title="Útil">
+                <i class="fas fa-face-smile"></i>
+                <span>Útil</span>
+            </button>
+            <button class="feedback-btn" title="Muy útil">
+                <i class="fas fa-face-grin"></i>
+                <span>Muy útil</span>
+            </button>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Trámites</h4>
+                <ul>
+                    <li><a href="#">Turnos</a></li>
+                    <li><a href="#">Trámites a distancia</a></li>
+                    <li><a href="#">Atención a la ciudadanía</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Acerca de la República Argentina</h4>
+                <ul>
+                    <li><a href="#">Nuestro país</a></li>
+                    <li><a href="#">Leyes argentinas</a></li>
+                    <li><a href="#">Organismos</a></li>
+                    <li><a href="#">Mapa del Estado</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Acerca de Argentina.gob.ar</h4>
+                <ul>
+                    <li><a href="#">Acerca de este sitio</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Sugerencias</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

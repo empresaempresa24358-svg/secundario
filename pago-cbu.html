@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de Pago - Argentina.gob.ar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html"><img src="images/argentina.png" alt="Logo Argentina" class="logo"></a>
+            <div class="header-right">
+                <div class="search-bar-header">
+                    <input type="text" placeholder="Buscá en el sitio">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="mi-argentina-btn">mi</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="yellow-line"></div>
+
+    <main class="content">
+        <nav class="breadcrumb">Ministerio de Capital Humano / Educación /</nav>
+        
+        <div class="page-layout">
+            <div class="main-content">
+                <h1>Datos de Pago</h1>
+                <p class="lead">Utiliza los siguientes datos para completar tu pago.</p>
+
+                <hr>
+
+                <section id="pago" class="section">
+                    <div class="payment-info">
+                        <h2>CBU de la Administradora</h2>
+                        <div class="cbu-box">
+                            <p class="cbu-label">Número de CBU:</p>
+                            <p class="cbu-number">0000184305010025590764</p>
+                            <button class="btn-copy" onclick="copiarCBU()">
+                                <i class="fas fa-copy"></i> Copiar CBU
+                            </button>
+                        </div>
+
+                        <div class="alert-warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div class="alert-content">
+                                <h3>ATENCIÓN</h3>
+                                <p><strong>MERCADOPAGO COLAPSADO</strong></p>
+                                <p>Solo se puede abonar con otras billeteras virtuales o otros bancos como:</p>
+                                <ul>
+                                    <li>Transferencia bancaria</li>
+                                    <li>DNI+</li>
+                                    <li>BNA+</li>
+                                    <li>Otras billeteras virtuales</li>
+                                    <li>Depósito en efectivo</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="payment-instructions">
+                            <h3>Instrucciones de Pago</h3>
+                            <ol>
+                                <li>Copia el número de CBU que se muestra arriba</li>
+                                <li>Ingresa a tu banco o billetera virtual</li>
+                                <li>Selecciona la opción "Transferencia" o "Enviar dinero"</li>
+                                <li>Pega el CBU en el campo correspondiente</li>
+                                <li>Ingresa el monto a transferir</li>
+                                <li>Confirma la operación</li>
+                            </ol>
+                        </div>
+
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i>
+                            <p><strong>Importante:</strong> Guarda el comprobante de tu transferencia. Lo necesitarás para seguimiento de tu trámite.</p>
+                        </div>
+
+                        <div class="file-upload-section">
+                            <h3>Adjuntar Comprobante de Pago</h3>
+                            <p>Por favor, sube el comprobante de tu transferencia para verificar el pago.</p>
+                            <div class="file-upload-container">
+                                <input type="file" id="comprobante" name="comprobante" accept=".pdf,.jpg,.jpeg,.png" class="file-input">
+                                <label for="comprobante" class="file-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Seleccionar archivo</span>
+                                </label>
+                                <p class="file-info">Formatos permitidos: PDF, JPG, PNG (Máximo 5MB)</p>
+                            </div>
+                            <button type="button" class="btn-finalize" onclick="finalizarPago()">Finalizar</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="sidebar">
+                <div class="sticky-card">
+                    <h3>Resumen</h3>
+                    <div class="summary-info">
+                        <p><strong>Estado:</strong> Pendiente de pago</p>
+                        <p><strong>Tipo:</strong> Transferencia Bancaria</p>
+                        <p><strong>Destino:</strong> CBU Administradora</p>
+                    </div>
+                    <button class="btn-green">Consultar en línea</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <section class="share-section">
+        <div class="share-container">
+            <p class="share-label">Compartir en redes sociales</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon" title="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="feedback-section">
+        <h2>¿Qué tan útil te resultó esta información?</h2>
+        <div class="feedback-options">
+            <button class="feedback-btn" title="No me sirvió">
+                <i class="fas fa-face-angry"></i>
+                <span>No me sirvió</span>
+            </button>
+            <button class="feedback-btn" title="Poco útil">
+                <i class="fas fa-face-frown"></i>
+                <span>Poco útil</span>
+            </button>
+            <button class="feedback-btn" title="Me da igual">
+                <i class="fas fa-face-meh"></i>
+                <span>Me da igual</span>
+            </button>
+            <button class="feedback-btn" title="Útil">
+                <i class="fas fa-face-smile"></i>
+                <span>Útil</span>
+            </button>
+            <button class="feedback-btn" title="Muy útil">
+                <i class="fas fa-face-grin"></i>
+                <span>Muy útil</span>
+            </button>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Trámites</h4>
+                <ul>
+                    <li><a href="#">Turnos</a></li>
+                    <li><a href="#">Trámites a distancia</a></li>
+                    <li><a href="#">Atención a la ciudadanía</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Acerca de la República Argentina</h4>
+                <ul>
+                    <li><a href="#">Nuestro país</a></li>
+                    <li><a href="#">Leyes argentinas</a></li>
+                    <li><a href="#">Organismos</a></li>
+                    <li><a href="#">Mapa del Estado</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Acerca de Argentina.gob.ar</h4>
+                <ul>
+                    <li><a href="#">Acerca de este sitio</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Sugerencias</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copiarCBU() {
+            const cbu = "0000184305010025590764";
+            navigator.clipboard.writeText(cbu).then(() => {
+                alert("CBU copiado al portapapeles");
+            }).catch(err => {
+                console.error("Error al copiar:", err);
+            });
+        }
+
+        function finalizarPago() {
+            const archivo = document.getElementById('comprobante').files[0];
+            
+            if (!archivo) {
+                alert("Por favor selecciona un archivo antes de continuar.");
+                return;
+            }
+
+            // Mostrar el modal
+            const modal = document.getElementById('processingModal');
+            modal.style.display = 'flex';
+
+            // Simular el proceso de descarga del PDF
+            setTimeout(() => {
+                modal.style.display = 'none';
+                alert("Pago procesado exitosamente. Tu comprobante será descargado.");
+                // Aquí iría la lógica para descargar el PDF
+            }, 30000); // 30 segundos
+        }
+    </script>
+
+    <!-- MODAL DE PROCESAMIENTO -->
+    <div id="processingModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-spinner"></div>
+            <h2>Su pago está en proceso</h2>
+            <p>Puede demorar 30 segundos en descargar el PDF</p>
+        </div>
+    </div>
+</body>
+</html>
