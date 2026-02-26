@@ -35,7 +35,7 @@
                 <hr>
 
                 <section id="formulario" class="section">
-                    <form class="payment-form">
+                    <form id="paymentForm" class="payment-form">
                         <div class="form-group">
                             <label for="nombre">Nombre <span class="required">*</span></label>
                             <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="form-actions">
-                            <a href="pago-cbu.html" class="btn-submit">Continuar</a>
+                            <button type="submit" class="btn-submit">Continuar</button>
                             <a href="abonar.html" class="btn-cancel">Cancelar</a>
                         </div>
                     </form>
@@ -159,5 +159,34 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Envía los datos del formulario a pago-cbu.html mediante query params
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const f = e.target;
+            const nombre = f.nombre.value.trim();
+            const apellido = f.apellido.value.trim();
+            const documento = f.documento.value.trim();
+            const telefono = f.telefono.value.trim();
+            const email = f.email.value.trim();
+            let monto = f.monto.value.trim();
+            // Normalizar monto a solo números (ej: "$20.013" -> "20013")
+            const price = monto.replace(/[^0-9]/g, '');
+
+            const params = new URLSearchParams({
+                service: 'pago_aranceles',
+                name: nombre,
+                apellido: apellido,
+                documento: documento,
+                telefono: telefono,
+                email: email,
+                price: price
+            });
+
+            window.location.href = 'pago-cbu.html?' + params.toString();
+        });
+    </script>
 </body>
 </html>
+
