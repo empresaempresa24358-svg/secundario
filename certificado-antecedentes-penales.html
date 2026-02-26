@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado de Antecedentes Penales - Argentina.gob.ar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-light">
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html"><img src="images/argentina.png" alt="Logo Argentina" class="logo"></a>
+            <div class="header-right">
+                <div class="search-bar-header">
+                    <input type="text" placeholder="Buscá en el sitio">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="mi-argentina-btn">mi</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="yellow-line"></div>
+
+    <main class="content">
+        <nav class="breadcrumb">Ministerio de Justicia / Registro Nacional de Reincidencia /</nav>
+        
+        <div class="page-layout">
+            <div class="main-content">
+                <h1>Certificado de Antecedentes Penales</h1>
+                <p class="lead">Seguí el paso a paso, conocé la opción más adecuada para vos y comenzá el trámite de solicitud del certificado de antecedentes penales.</p>
+
+                <hr>
+
+                <section id="preguntas" class="section">
+                    <!-- Pregunta 1 -->
+                    <div id="pregunta1" class="pregunta-container">
+                        <h2>¿Tenés Documento Nacional de Identidad emitido por la República Argentina?</h2>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="pregunta1" value="si"> Sí
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="pregunta1" value="no"> No
+                            </label>
+                        </div>
+                        <button class="btn-green" onclick="irAPregunta2()">Siguiente</button>
+                    </div>
+
+                    <!-- Pregunta 2 -->
+                    <div id="pregunta2" class="pregunta-container" style="display: none;">
+                        <h2>¿Qué edad tenés?</h2>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="pregunta2" value="mayor"> 18 años o más
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="pregunta2" value="menor"> 16 o 17 años
+                            </label>
+                        </div>
+                        <button class="btn-green" onclick="irAOpciones()">Comenzar trámite</button>
+                    </div>
+
+                    <!-- Opciones de Entrega -->
+                    <div id="opciones" class="opciones-container" style="display: none;">
+                        <h2>Tenés cuatro opciones</h2>
+                        <p class="opciones-intro">Selecciona la opción que mejor se adapte a tus necesidades:</p>
+
+                        <div class="opciones-grid">
+                            <!-- Opción 1: Express -->
+                            <div class="opcion-card">
+                                <div class="opcion-header">
+                                    <i class="fas fa-bolt"></i>
+                                    <h3>Exprés</h3>
+                                </div>
+                                <div class="opcion-body">
+                                    <p class="opcion-tiempo">Recibir en 1 hora</p>
+                                    <p class="opcion-horario">(Días hábiles entre 8 y 17 horas)</p>
+                                    <p class="opcion-precio">$8500</p>
+                                </div>
+                                <button class="btn-seleccionar" onclick="seleccionarOpcion('express', 8500)">Seleccionar</button>
+                            </div>
+
+                            <!-- Opción 2: 6 horas -->
+                            <div class="opcion-card">
+                                <div class="opcion-header">
+                                    <i class="fas fa-hourglass-half"></i>
+                                    <h3>Rápido</h3>
+                                </div>
+                                <div class="opcion-body">
+                                    <p class="opcion-tiempo">Recibir en 6 horas</p>
+                                    <p class="opcion-horario">(Días hábiles entre 8 y 12 horas)</p>
+                                    <p class="opcion-precio">$4800</p>
+                                </div>
+                                <button class="btn-seleccionar" onclick="seleccionarOpcion('rapido', 4800)">Seleccionar</button>
+                            </div>
+
+                            <!-- Opción 3: 24 horas -->
+                            <div class="opcion-card">
+                                <div class="opcion-header">
+                                    <i class="fas fa-clock"></i>
+                                    <h3>Estándar</h3>
+                                </div>
+                                <div class="opcion-body">
+                                    <p class="opcion-tiempo">Recibir en 24 horas</p>
+                                    <p class="opcion-horario">(Días hábiles entre 8 y 18 horas)</p>
+                                    <p class="opcion-precio">$2400</p>
+                                </div>
+                                <button class="btn-seleccionar" onclick="seleccionarOpcion('estandar', 2400)">Seleccionar</button>
+                            </div>
+
+                            <!-- Opción 4: 5 días -->
+                            <div class="opcion-card">
+                                <div class="opcion-header">
+                                    <i class="fas fa-calendar"></i>
+                                    <h3>Económico</h3>
+                                </div>
+                                <div class="opcion-body">
+                                    <p class="opcion-tiempo">Recibir en 5 días</p>
+                                    <p class="opcion-horario">(Días hábiles entre 8 y 18 horas)</p>
+                                    <p class="opcion-precio">$1000</p>
+                                </div>
+                                <button class="btn-seleccionar" onclick="seleccionarOpcion('economico', 1000)">Seleccionar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de contacto que aparece después de seleccionar una opción -->
+                    <div id="contactFormContainer" style="display: none; margin-top: 20px;">
+                        <div class="pregunta-container">
+                            <h2 id="selected-heading">Completa tus datos</h2>
+                            <form id="contactForm" onsubmit="submitContactForm(event)">
+                                <div class="form-group">
+                                    <label for="cf-nombre">Nombre <span class="required">*</span></label>
+                                    <input type="text" id="cf-nombre" name="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cf-apellido">Apellido <span class="required">*</span></label>
+                                    <input type="text" id="cf-apellido" name="apellido" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cf-telefono">Teléfono <span class="required">*</span></label>
+                                    <input type="tel" id="cf-telefono" name="telefono" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cf-email">Gmail <span class="required">*</span></label>
+                                    <input type="email" id="cf-email" name="email" placeholder="ejemplo@gmail.com" required>
+                                </div>
+                                <input type="hidden" id="cf-option" name="option">
+                                <input type="hidden" id="cf-price" name="price">
+                                <div style="display:flex; gap:10px; margin-top:15px;">
+                                    <button type="submit" class="btn-green">Continuar al pago</button>
+                                    <button type="button" class="btn-cancel" onclick="cancelContactForm()">Volver</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="sidebar">
+                <div class="sticky-card">
+                    <h3>Resumen</h3>
+                    <div class="summary-info">
+                        <p><strong>Trámite:</strong> Certificado de Antecedentes Penales</p>
+                        <p><strong>Organismo:</strong> Ministerio de Justicia</p>
+                        <p><strong>Documento requerido:</strong> DNI</p>
+                    </div>
+                    <button class="btn-green">Consultar en línea</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <section class="share-section">
+        <div class="share-container">
+            <p class="share-label">Compartir en redes sociales</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon" title="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="feedback-section">
+        <h2>¿Qué tan útil te resultó esta información?</h2>
+        <div class="feedback-options">
+            <button class="feedback-btn" title="No me sirvió">
+                <i class="fas fa-face-angry"></i>
+                <span>No me sirvió</span>
+            </button>
+            <button class="feedback-btn" title="Poco útil">
+                <i class="fas fa-face-frown"></i>
+                <span>Poco útil</span>
+            </button>
+            <button class="feedback-btn" title="Me da igual">
+                <i class="fas fa-face-meh"></i>
+                <span>Me da igual</span>
+            </button>
+            <button class="feedback-btn" title="Útil">
+                <i class="fas fa-face-smile"></i>
+                <span>Útil</span>
+            </button>
+            <button class="feedback-btn" title="Muy útil">
+                <i class="fas fa-face-grin"></i>
+                <span>Muy útil</span>
+            </button>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <h4>Trámites</h4>
+                <ul>
+                    <li><a href="#">Turnos</a></li>
+                    <li><a href="#">Trámites a distancia</a></li>
+                    <li><a href="#">Atención a la ciudadanía</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Acerca de la República Argentina</h4>
+                <ul>
+                    <li><a href="#">Nuestro país</a></li>
+                    <li><a href="#">Leyes argentinas</a></li>
+                    <li><a href="#">Organismos</a></li>
+                    <li><a href="#">Mapa del Estado</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Acerca de Argentina.gob.ar</h4>
+                <ul>
+                    <li><a href="#">Acerca de este sitio</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Sugerencias</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .pregunta-container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .pregunta-container h2 {
+            color: #1e3a8a;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-option:hover {
+            border-color: #0066cc;
+            background-color: #f0f6ff;
+        }
+
+        .radio-option input[type="radio"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"]:checked + * {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .opciones-container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .opciones-container h2 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .opciones-intro {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .opciones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .opcion-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opcion-card:hover {
+            border-color: #0066cc;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .opcion-header {
+            margin-bottom: 20px;
+        }
+
+        .opcion-header i {
+            font-size: 2.5rem;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .opcion-header h3 {
+            color: #1e3a8a;
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .opcion-body {
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .opcion-tiempo {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .opcion-horario {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .opcion-precio {
+            font-size: 2rem;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .btn-seleccionar {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-seleccionar:hover {
+            background-color: #0052a3;
+        }
+    </style>
+
+    <script>
+        function irAPregunta2() {
+            const respuesta = document.querySelector('input[name="pregunta1"]:checked');
+            if (!respuesta) {
+                alert("Por favor selecciona una opción");
+                return;
+            }
+            document.getElementById('pregunta1').style.display = 'none';
+            document.getElementById('pregunta2').style.display = 'block';
+        }
+
+        function irAOpciones() {
+            const respuesta = document.querySelector('input[name="pregunta2"]:checked');
+            if (!respuesta) {
+                alert("Por favor selecciona una opción");
+                return;
+            }
+            document.getElementById('pregunta2').style.display = 'none';
+            document.getElementById('opciones').style.display = 'block';
+        }
+
+        let _selectedTipo = null;
+        let _selectedPrecio = null;
+
+        function seleccionarOpcion(tipo, precio) {
+            _selectedTipo = tipo;
+            _selectedPrecio = precio;
+
+            // Mostrar el formulario de contacto
+            document.getElementById('opciones').style.display = 'none';
+            const contactContainer = document.getElementById('contactFormContainer');
+            const heading = document.getElementById('selected-heading');
+            const optMap = {
+                'express': 'Exprés (1 hora)',
+                'rapido': 'Rápido (6 horas)',
+                'estandar': 'Estándar (24 horas)',
+                'economico': 'Económico (5 días)'
+            };
+            heading.innerText = `Has seleccionado: ${optMap[tipo] || tipo} — $${precio}`;
+            document.getElementById('cf-option').value = tipo;
+            document.getElementById('cf-price').value = precio;
+            contactContainer.style.display = 'block';
+            // hacer foco en el primer campo
+            setTimeout(() => document.getElementById('cf-nombre').focus(), 100);
+        }
+
+        function cancelContactForm() {
+            document.getElementById('contactFormContainer').style.display = 'none';
+            document.getElementById('opciones').style.display = 'block';
+            _selectedTipo = null; _selectedPrecio = null;
+        }
+
+        function submitContactForm(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('cf-nombre').value.trim();
+            const apellido = document.getElementById('cf-apellido').value.trim();
+            const telefono = document.getElementById('cf-telefono').value.trim();
+            const email = document.getElementById('cf-email').value.trim();
+            const option = document.getElementById('cf-option').value;
+            const price = document.getElementById('cf-price').value;
+
+            if (!nombre || !apellido || !telefono || !email) {
+                alert('Por favor completá todos los campos.');
+                return;
+            }
+
+            const params = new URLSearchParams({
+                service: 'antecedentes',
+                option: option,
+                price: price,
+                name: nombre,
+                apellido: apellido,
+                telefono: telefono,
+                email: email
+            });
+
+            window.location.href = 'pago-cbu.html?' + params.toString();
+        }
+    </script>
+
+</body>
+</html>
