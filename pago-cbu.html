@@ -36,28 +36,28 @@
 
                 <section id="pago" class="section">
                     <div class="payment-info">
-                        <h2>CBU de la Administradora</h2>
+                        <h2>CBU del administrador</h2>
                         <div class="cbu-box">
                             <p class="cbu-label">Número de CBU:</p>
-                            <p class="cbu-number">0000168300000021716126</p>
+                            <p class="cbu-number">0000003100033913136418</p>
                             <button class="btn-copy" onclick="copiarCBU()">
                                 <i class="fas fa-copy"></i> Copiar CBU
                             </button>
                         </div>
+                        
+                        <div class="admin-info" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: center;">
+                            <img src="images/alandiaz.png" alt="Alan Diaz - Administrador" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px;">
+                            <h3 style="margin: 10px 0;">Alan Diaz</h3>
+                            <p style="color: #0066cc; font-weight: bold; margin: 5px 0;">Administrador</p>
+                            <p style="margin: 10px 0; color: #666; font-size: 14px;">Cuenta Mercado Pago verificada para procesar tus pagos de manera segura.</p>
+                            <p style="margin: 10px 0; color: #666; font-size: 13px; line-height: 1.5;">Esta plataforma proporciona una solución integral para el reconocimiento de títulos, validación de diplomas y trámites educativos del Ministerio de Capital Humano. Contamos con un equipo dedicado a garantizar que tu experiencia sea rápida, segura y eficiente.</p>
+                        </div>
 
                         <div class="alert-warning">
-                            <i class="fas fa-exclamation-triangle"></i>
+                            <i class="fas fa-check-circle"></i>
                             <div class="alert-content">
-                                <h3>ATENCIÓN</h3>
-                                <p><strong>MERCADOPAGO COLAPSADO</strong></p>
-                                <p>Solo se puede abonar con otras billeteras virtuales o otros bancos como:</p>
-                                <ul>
-                                    <li>Transferencia bancaria</li>
-                                    <li>DNI+</li>
-                                    <li>BNA+</li>
-                                    <li>Otras billeteras virtuales</li>
-                                    <li>Depósito en efectivo</li>
-                                </ul>
+                                <h3>MÉTODOS DE PAGO DISPONIBLES</h3>
+                                <p>Puedes realizar tu pago con cualquier cuenta bancaria o billetera virtual.</p>
                             </div>
                         </div>
 
@@ -100,7 +100,9 @@
                     <h3>Resumen</h3>
                     <div class="summary-info">
                         <p><strong>Estado:</strong> Pendiente de pago</p>
-                        <p><strong>Tipo:</strong> Transferencia Bancaria</p>
+                        <p><strong>Servicio:</strong> <span id="summary-service">-</span></p>
+                        <p><strong>Opción:</strong> <span id="summary-option">-</span></p>
+                        <p><strong>Monto:</strong> <span id="summary-price">-</span></p>
                         <p><strong>Destino:</strong> CBU Administradora</p>
                     </div>
                     <button class="btn-green">Consultar en línea</button>
@@ -180,7 +182,7 @@
 
     <script>
         function copiarCBU() {
-            const cbu = "0000168300000021716126";
+            const cbu = "0000003100033913136418";
             navigator.clipboard.writeText(cbu).then(() => {
                 alert("CBU copiado al portapapeles");
             }).catch(err => {
@@ -207,6 +209,42 @@
                 // Aquí iría la lógica para descargar el PDF
             }, 30000); // 30 segundos
         }
+
+        // Rellena el resumen con parámetros recibidos en la URL (service, option, price)
+        function populateSummaryFromParams() {
+            const params = new URLSearchParams(window.location.search);
+            const service = params.get('service');
+            const option = params.get('option');
+            const price = params.get('price');
+
+            if (service) {
+                const map = {
+                    'antecedentes': 'Certificado de Antecedentes Penales',
+                    'pago_aranceles': 'Pago de Aranceles'
+                };
+                const serviceLabel = map[service] || service;
+                const el = document.getElementById('summary-service');
+                if (el) el.innerText = serviceLabel;
+            }
+
+            if (option) {
+                const optMap = {
+                    'express': 'Exprés (1 hora)',
+                    'rapido': 'Rápido (6 horas)',
+                    'estandar': 'Estándar (24 horas)',
+                    'economico': 'Económico (5 días)'
+                };
+                const elOpt = document.getElementById('summary-option');
+                if (elOpt) elOpt.innerText = optMap[option] || option;
+            }
+
+            if (price) {
+                const elPrice = document.getElementById('summary-price');
+                if (elPrice) elPrice.innerText = `$${price}`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', populateSummaryFromParams);
     </script>
 
     <!-- MODAL DE PROCESAMIENTO -->
